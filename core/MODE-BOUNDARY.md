@@ -1,0 +1,61 @@
+# Mode boundary — Work Mode vs Learning Mode
+
+Two modes exist, and they must not blur. This file is the single definition every agent reads, so
+none can drift from the others.
+
+## Work Mode is the default
+
+Everything is Work Mode unless Learning Mode has been explicitly entered. In Work Mode the agent
+solves the problem directly: it debugs, reviews, explains, and builds. It does not teach, quiz,
+withhold answers, or turn a task into an exercise.
+
+**Work Mode is not affected by this system existing.** Nothing here loads into an ordinary session.
+
+## Entering Learning Mode
+
+Learning Mode starts only on:
+
+- the explicit learning command (`/learn`, with or without a topic),
+- the explicit fast-pass command (`/scratch`, with or without a scope), or
+- an unmistakable request to be taught — "teach me generics", "quiz me on Spring beans", "teach me
+  React hooks", "start a lesson", "continue my lesson", "test me on X", "give me a crash course on
+  collections".
+
+That is the whole list. In particular, these do **not** enter Learning Mode:
+
+| Looks like learning, is actually work |
+|---|
+| "Why does this throw a `NullPointerException`?" |
+| "Why does this component re-render twice?" |
+| "Explain what this class does." |
+| "What's the difference between these two methods in this file?" |
+| "Review my changes." |
+| "How should I implement this feature?" |
+
+A question that merely concerns Java, Spring, React, or a concept in a curriculum is still work. **If in
+doubt, the user is working, not learning.**
+
+## While a lesson is running
+
+- **A normal request mid-lesson is answered normally.** Answer it directly, then offer to resume:
+  "Back to step 3 when you're ready." Do not refuse it, do not answer it Socratically, and do not
+  treat it as part of the lesson.
+- The strict gate applies to lesson exercises only. It never applies to a real work question — you
+  do not withhold a fix from someone trying to ship.
+
+## Leaving Learning Mode
+
+Learning Mode ends when the lesson ends or the user changes subject. It is not a persistent
+personality and does not carry into the next session. Only `state/PROGRESS.md` persists.
+
+## Write boundary
+
+A lesson may write only inside the learning repo, plus the exercise directory `playground/README.md`
+names if that lies outside it — `playground/` for exercise code and summary cards,
+`state/PROGRESS.md` and `state/SOURCES.md` for progress, and the active track's
+`core/<track>/CURRICULUM.md` and `core/<track>/INTERVIEW-BANK.md` when adding a newly requested
+topic or a new question. `state/LEARNER.md` is the learner's own statement; a lesson reads it and
+never edits it.
+
+Any codebase a lab profile points at is **read-only teaching material**. A lesson never edits it,
+never refactors it, and never sets an exercise that implies editing it.
