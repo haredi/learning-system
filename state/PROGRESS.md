@@ -10,7 +10,7 @@ Maintained by the `/learn` skill. Read at the start of every session, updated af
 
 One line per track; a lesson changes only its own track's line.
 
-**java** — Topic: 01 — Types, values and references. Step: not started.
+**java** — Topic: 01 — Types, values and references. Step: 3 (exercise written to IDE scratches learn/01-types-values-references/Main.java, 3 bugs, awaiting attempt; base level).
 
 **react** — Topic: R01 — JSX. Step: not started.
 
